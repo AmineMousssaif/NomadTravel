@@ -90,8 +90,13 @@ h6 {
   color: #fff;
 }
 
+#h2  .logo1 img{
+  max-height: 20px;
+  opacity: 0.5;
+}
+
 #header .logo img {
-  max-height: 40px;
+  max-height: 80px;
 }
 
 #header.header-scrolled,
@@ -361,7 +366,7 @@ h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   background: url("../img/hero-bg.jpg") top center;
   background-size: cover;
   position: relative;
@@ -440,7 +445,12 @@ h6 {
   }
 }
 
+
+
 @media (max-width: 768px) {
+  .col-lg-4 {
+    margin-bottom: 30px;
+  }
   #hero h3 {
     font-size: 22px;
   }
@@ -498,6 +508,7 @@ section {
   margin: 15px 0 0 0;
   font-size: 32px;
   font-weight: 700;
+  margin-top: 20px;
 }
 
 .section-title h3 span {
@@ -895,7 +906,8 @@ section {
 # Pricing
 --------------------------------------------------------------*/
 .pricing .box {
-  padding: 20px;
+  margin-left: 432px;
+  margin-right: 432px;
   background: #f9f9f9;
   text-align: center;
   border-radius: 8px;
@@ -1005,6 +1017,13 @@ section {
   background: #fce6ea;
   color: #e43c5c;
   border-radius: 50px;
+}
+
+@media (max-width: 768px) {
+  .pricing .box {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1273,7 +1292,7 @@ section {
   padding: 10px 12px;
 }
 
-.contact .php-email-form button[type=submit] {
+.contact  button[type=submit] {
   background: #e43c5c;
   border: 0;
   padding: 10px 28px;
@@ -1282,7 +1301,7 @@ section {
   border-radius: 50px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact button[type=submit]:hover {
   background: #d01d3f;
 }
 
