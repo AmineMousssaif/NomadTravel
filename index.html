@@ -26,8 +26,6 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 
   <!-- =======================================================
   * Template Name: Tempo
@@ -50,47 +48,92 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto active" href="">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">Over ons</a></li>
+          <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto " href="#pricing">Prijzen</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Inschrijven</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
-  <!-- ======= Hero Section ======= -->
-  <section id="hero">
-    <div class="hero-container">
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <!-- Add your slide items here -->
-          <div class="swiper-slide">
-            <img src="assets/img/hero-bg.jpg" alt="Slide 1">
-          </div>
-          <div class="swiper-slide">
-            <img src="assets/img/slide2.jpg" alt="Slide 2">
-          </div>
-            <div class="swiper-slide">
-                <img src="assets/img/slide3.jpg" alt="Slide 3">
-            </div>
 
-          <!-- Add more slides as needed -->
-        </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-        <!-- Add Navigation -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-      </div>
-        <h3>Welkom bij <strong>Nomad Travel</strong></h3>
-        <h1>Gespecialiseerde motorvakanties in Marokko</h1>
-        <a href="#about" class="btn-get-started scrollto">Inschrijven</a>
+
+  <!-- ======= Hero Section ======= -->
+  <div class="carousel">
+    <button class="prev-btn" onclick="prevSlide()">&#10094;</button>
+    <button class="next-btn" onclick="nextSlide()">&#10095;</button>
+    <input type="radio" name="carousel" id="slide-btn-1" class="slide-btn" />
+    <input type="radio" name="carousel" id="slide-btn-2" class="slide-btn" />
+    <input type="radio" name="carousel" id="slide-btn-3" class="slide-btn" />
+    <input type="radio" name="carousel" id="slide-btn-4" class="slide-btn" />
+    <input type="radio" name="carousel" id="slide-btn-5" class="slide-btn" />
+    <div class="slide one parallax-effect"><h1 style="color: #ffff;">NOHA ADVENTURES</h1>
+      <div class="credit"> <span style="color:tomato"></span><a href="assets/img/hero-bg.jpg"></a></div></div>
+    <div class="slide two parallax-effect"><h1>NOHA ADVENTURES</h1>
+      <div class="credit"> <a href="assets/img/slide2.jpg"></a></div></div>
+    <div class="slide three parallax-effect"><h1 style="color: #ffff;">NOHA ADVENTURES</h1>
+      <div class="credit"><a href="assets/img/slide3.jpg"></a></div></div>
+    <div class="slide four parallax-effect"><h1 style="color: #ffff;">NOHA ADVENTURES</h1>
+      <div class="credit"><a href="assets/img/slide4.jpg"></a></div></div>
+    <div class="slide five parallax-effect"><h1 style="color: #ffff;">NOHA ADVENTURES</h1>
+      <div class="credit"><a href="assets/img/slide5.jpg"></a></div></div>
     </div>
-  </section><!-- Einde Hero -->
+    <div class="labels">
+      <label onclick="setInt(0)"></label>
+      <label onclick="setInt(1)"></label>
+      <label onclick="setInt(2)"></label>
+      <label onclick="setInt(3)"></label>
+      <label onclick="setInt(4)"></label>
+    </div>
+  </div>
+  <script> var int;
+  function setInt(index) {
+    clearInterval(int);
+    var btns = document.getElementsByName("carousel");
+    btns[index].checked = true;
+    int = setInterval(function () {
+      nextSlide();
+    }, 5000);
+  }
+
+  function nextSlide() {
+    var btns = document.getElementsByName("carousel");
+    for (var i = 0; i < btns.length; i++) {
+      if (btns[i].checked) {
+        btns[i].checked = false;
+        if (i + 1 == btns.length) {
+          btns[0].checked = true;
+          setInt(0);
+        } else {
+          btns[i + 1].checked = true;
+          setInt(i + 1);
+        }
+        return;
+      }
+    }
+  }
+
+  function prevSlide() {
+    var btns = document.getElementsByName("carousel");
+    for (var i = 0; i < btns.length; i++) {
+      if (btns[i].checked) {
+        btns[i].checked = false;
+        if (i - 1 < 0) {
+          btns[btns.length - 1].checked = true;
+          setInt(btns.length - 1);
+        } else {
+          btns[i - 1].checked = true;
+          setInt(i - 1);
+        }
+        return;
+      }
+    }
+  }
+
+  setInt(0);</script>
 
 
   <main id="main">
@@ -100,8 +143,7 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Over Ons</h2>
-          <h3>Leer Meer <span>Over Ons</span></h3>
+          <h3><span>ZIN IN EEN ONVERGETELIJKE ADVONTUUR? </span></h3>
           <p>Hallo en welkom bij Nomad Adventure! Onze passie en specialisatie liggen in het creëren van onvergetelijke reiservaringen in het betoverende Marokko. Wij streven ernaar om u volledig onder te dompelen in de prachtige diversiteit van dit adembenemende land.</p>
         </div>
 
@@ -228,7 +270,7 @@
           <div class="col-lg-12">
             <div class="iframe-container">
               <!-- Plaats hier je iframe-code -->
-              <iframe width="100%" height="400" src="assets/img/portfolio/reis.mp4" frameborder="0" allowfullscreen></iframe>
+              <iframe width="100%" height="400" src="assets/img/portfolio/reis.mp4"  frameborder="0" allowfullscreen></iframe>
             </div>
           </div>
         </div>
@@ -256,7 +298,7 @@
               <li>1 verassing overnachting</li>
             </ul>
             <div class="btn-wrap">
-              <a href="#" class="btn-buy">Inschrijven</a>
+              <a href="#contact" class="btn-buy">Inschrijven</a>
             </div>
           </div>
         </div>
@@ -278,10 +320,10 @@
               <!-- Voornaam -->
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="voornaam" class="form-control" placeholder="Voornaam" required>
+                  <input type="text" id="voornaam" name="voornaam" class="form-control" placeholder="Voornaam" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="text" name="naam" class="form-control" placeholder="Naam" required>
+                  <input type="text" id="name" name="naam" class="form-control" placeholder="Naam" required>
                 </div>
               </div>
 
@@ -292,27 +334,27 @@
 
               <!-- Adres -->
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="adres" placeholder="Straat + Nr" required>
+                <input type="text" class="form-control" id="adres" name="adres" placeholder="Straat + Nr" required>
               </div>
 
               <!-- Postcode -->
               <div class="row">
                 <div class="col-md-6 form-group mt-3">
-                  <input type="text" class="form-control" name="postcode" placeholder="Postcode" required>
+                  <input type="text" class="form-control" id="postcode" name="postcode" placeholder="Postcode" required>
                 </div>
                 <div class="col-md-6 form-group mt-3">
-                  <input type="text" class="form-control" name="gemeente" placeholder="Gemeente" required>
+                  <input type="text" class="form-control" id="gemeente" name="gemeente" placeholder="Gemeente" required>
                 </div>
               </div>
 
               <!-- GSM -->
               <div class="form-group mt-3">
-                <input type="tel" class="form-control" name="gsm" placeholder="GSM" required>
+                <input type="tel" class="form-control" id="gsm" name="gsm" placeholder="GSM" required>
               </div>
 
               <!-- Taal -->
               <div class="form-group mt-3">
-                <select class="form-control" name="taal" required>
+                <select class="form-control" id="taal" name="taal" required>
                   <option value="Nederlands">Nederlands</option>
                   <option value="Français">Français</option>
                 </select>
@@ -320,18 +362,27 @@
 
               <!-- Periode -->
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="periode" placeholder="Periode" required>
+                <select class="form-control" id="periode" name="periode" required>
+                  <option value="Februari">Februari</option>
+                  <option value="Juni">Juni</option>
+                </select>
               </div>
 
               <!-- Vragen of opmerkingen -->
               <div class="form-group mt-3">
-                <textarea class="form-control" name="vragen" rows="4" placeholder="Vragen of opmerkingen"></textarea>
+                <textarea class="form-control" id="vragen" name="vragen" rows="4" placeholder="Vragen of opmerkingen"></textarea>
               </div>
 
               <!-- Factuur -->
               <div class="form-group mt-3">
                 <label>
-                  <input type="checkbox" name="factuur"> Ik wens een factuur op basis van de opgegeven gegevens
+                  <input type="checkbox" id="factuur" name="factuur"> Ik wens een factuur op basis van de opgegeven gegevens
+                </label>
+              </div>
+              <!-- T-shirt -->
+              <div class="form-group mt-3">
+                <label>
+                  <input type="checkbox" id="t-shirt" name="t-shirt"> Ik wens een t-shirt te bestellen van Nomad Travel
                 </label>
               </div>
 
@@ -425,18 +476,25 @@
         From : 'cskillers123@gmail.com',
         ReplyFrom : document.getElementById("email").value,
         Subject : "Inschrijving Nomad Travel",
-        Body : "And this is the body"
+        Body : "Voornaam: " + document.getElementById("voornaam").value + "<br>" +
+            "Naam: " + document.getElementById("naam").value + "<br>" +
+            "Email: " + document.getElementById("email").value + "<br>" +
+            "Adres: " + document.getElementById("adres").value + "<br>" +
+            "Postcode: " + document.getElementById("postcode").value + "<br>" +
+            "Gemeente: " + document.getElementById("gemeente").value + "<br>" +
+            "GSM: " + document.getElementById("gsm").value + "<br>" +
+            "Taal: " + document.getElementById("taal").value + "<br>" +
+            "Periode: " + document.getElementById("periode").value + "<br>" +
+            "Vragen: " + document.getElementById("vragen").value + "<br>" +
+            "Factuur: " + document.getElementById("factuur").value + "<br>" +
+            "T-shirt: " + document.getElementById("t-shirt").value + "<br>"
       }).then(
               message => alert(message)
       );
     }
   </script>
-  <script>
-    lightbox.option({
-      'resizeDuration': 200,
-      'wrapAround': true
-    })
-  </script>
+
+
   <!-- Swiper JS -->
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 

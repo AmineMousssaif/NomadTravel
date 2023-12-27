@@ -20,6 +20,53 @@
     }
   }
 
+
+  var int;
+  function setInt(index) {
+    clearInterval(int);
+    var btns = document.getElementsByName("carousel");
+    btns[index].checked = true;
+    int = setInterval(function () {
+      nextSlide();
+    }, 5000);
+  }
+
+  function nextSlide() {
+    var btns = document.getElementsByName("carousel");
+    for (var i = 0; i < btns.length; i++) {
+      if (btns[i].checked) {
+        btns[i].checked = false;
+        if (i + 1 == btns.length) {
+          btns[0].checked = true;
+          setInt(0);
+        } else {
+          btns[i + 1].checked = true;
+          setInt(i + 1);
+        }
+        return;
+      }
+    }
+  }
+
+  function prevSlide() {
+    var btns = document.getElementsByName("carousel");
+    for (var i = 0; i < btns.length; i++) {
+      if (btns[i].checked) {
+        btns[i].checked = false;
+        if (i - 1 < 0) {
+          btns[btns.length - 1].checked = true;
+          setInt(btns.length - 1);
+        } else {
+          btns[i - 1].checked = true;
+          setInt(i - 1);
+        }
+        return;
+      }
+    }
+  }
+
+  setInt(0);
+
   /**
    * Easy event listener function
    */
